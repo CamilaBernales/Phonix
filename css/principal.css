@@ -1,0 +1,9 @@
+.navbar .logo{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+.fondo-principal{
+    background: linear-gradient(to left, #69140E, #F17F29 , #eee , #F96900);
+
+}                                           
