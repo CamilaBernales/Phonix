@@ -1,0 +1,141 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(http://serfitmex.com.mx/wp-content/uploads/2019/08/E-021.jpeg);
+   background-size: cover;
+   height: 100vh;
+   
+}
+
+.login{
+    
+    display: inline-block;
+    width: 320px;
+    height: 420px;
+    background: #000000;
+    color: #ffffff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    font-family: sans-serif;
+}
+
+
+.login .logo{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+
+}
+.login h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+.login label{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.login input, #buttonAdmin{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.login input[type="text"], .login input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    background: transparent;
+    outline:none;
+    height: 40px;
+    color: #ffffff;
+    font-size: 15px;
+    
+}
+#buttonAdmin{
+    border: none;
+    outline: none;
+    height: 40px;
+    background-color: #69140E ;
+    color: #ffffff;
+    font-size: 18px;
+    border-radius: 20px ;
+}
+
+.login a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgray;
+}
+
+.login a:hover{
+    color: #ffffff;
+}
+
+/*formulario */
+.navbar{
+   
+    top: 0%;
+    position: sticky;
+    z-index:1; 
+    display: flexñ;
+}
+.UserForm{
+    
+    display: flex;
+    width: 800px;
+    height: 520px;
+    background: #000000;
+    color: #ffffff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    font-family: sans-serif;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    
+}
+
+
+.UserForm input{
+    border: none;
+    outline: none;
+    
+     
+    resize: vertical;
+    
+    
+    
+    
+}
+
+
+/*
+.login{
+    
+    width: 320px;
+    height: 420px;
+    background: #000000;
+    color: #ffffff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    font-family: sans-serif;
+}
+*/
