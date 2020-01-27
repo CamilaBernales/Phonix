@@ -70,19 +70,20 @@ function addUser() {
 
 }
 
-function UsersList(){
+function UsersList() {
 
-//    console.log("hello");
-    let users = JSON.parse(localStorage.getItem('users'))|| []; 
-    let tabla = '';  
+    //    console.log("hello");
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let tabla = '';
 
-    for(let index = 0; index<users.length; index++){
+    for (let index = 0; index < users.length; index++) {
 
         // console.log("hi");
-        let a = users[index]; 
+        let a = users[index];
         tabla += '<tr><td>' + a.name + '</td><td>' + a.dni + '</td></tr>'
     }
 
     document.getElementById('usersTable').innerHTML = tabla;
-    
+
 }
+
