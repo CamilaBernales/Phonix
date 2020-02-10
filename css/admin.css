@@ -1,11 +1,11 @@
-body{
+.header-page {
     margin: 0;
     padding: 0;
-    background: url(http://serfitmex.com.mx/wp-content/uploads/2019/08/E-021.jpeg);
-   background-size: cover;
-   height: 100vh;
-   
+    background-color: #69140E ;
+    background-size: cover;
+    height: 50 hv;
 }
+
 .table{
     background-color: #ffffff;
 }
@@ -89,8 +89,8 @@ body{
    
     top: 0%;
     position: sticky;
-    z-index:1; 
-    display: flexñ;
+    z-index: 1; 
+    display: flex;
 }
 .UserForm{
     
