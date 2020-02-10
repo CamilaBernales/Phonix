@@ -13,6 +13,7 @@
 
 <body>
 
+    <!--NavBar inicio-->
     <ul class="nav nav-tabs bg-danger" id="myTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
@@ -30,11 +31,8 @@
             <a class="nav-link" id="clases-tab" data-toggle="tab" href="#listadoClases" role="tab"
                 aria-controls="contact" aria-selected="false">Listado de clases</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" id="asistencia-tab" data-toggle="tab" href="#listadoAsistencia" role="tab"
-                aria-controls="contact" aria-selected="false">Listado de Asistencia</a>
-        </li>
     </ul>
+    <!--Fin navBar-->
     <div class="container">
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -120,32 +118,22 @@
                                 <th scope="col">Actividad</th>
                                 <th scope="col">Horario</th>
                                 <th scope="col">Dia</th>
-                                
+                                 <th scope="col">Anotados</th>
                             </tr>
                         </thead>
                         <tbody id="clasesTable"></tbody>
                     </table>
                 </div>
             </div>
-
-            <div class="tab-pane fade" id="listadoAsistencia" role="tabpanel" aria-labelledby="nav-contact-tab">
-                <div class="row">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Actividad</th>
-                                <th scope="col">Horario</th>
-                                
-                                
-                            </tr>
-                        </thead>
-                        <tbody id="listadoAsistencia"></tbody>
-                    </table>
-                </div>
-            </div>
-
-
         </div>
+
+        <!--Collapse para el listado de inscriptos-->
+
+
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+            </div>
 
     </div>
     

@@ -4,8 +4,7 @@ class Actividades {
         this.horario = horario;
         this.id = generarId(20);
         this.dia = dia;
-        this.ReservaActividades = mostrarEnmodal();
-
+        this.anotados = [];
 
     }
 
@@ -77,8 +76,7 @@ function listarActividades(clases = null) {
 
 function mostrarEnmodal(id) {
 
-    clases = JSON.parse(localStorage.getItem('Clases')) || [];
-
+    let clases = JSON.parse(localStorage.getItem('Clases')) || [];
 
     let modal = " ";
 
@@ -91,9 +89,6 @@ function mostrarEnmodal(id) {
     }
     if (id != null) {
 
-
-
-
         document.getElementById("modalBody").dataset.id = id;
         document.getElementById("modalBody").innerHTML = modal;
 
@@ -104,31 +99,29 @@ function mostrarEnmodal(id) {
             // console.log(id);
             btonreserva.innerText = 'cancelar'
             btonreserva.setAttribute('data-target', '');
+            let posicion = clases.findIndex(actividad => actividad.id == id);
+            let idusuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado')).id;
 
-            botonConfirmar.addEventListener("click", listarAsistencia(id));
-
-
-
-
+            console.log(idusuarioLogeado);
+            clases[posicion].anotados.push(idusuarioLogeado);
+            localStorage.setItem('Clases', JSON.stringify(clases));
+            console.log(clases);
+            console.log(posicion);
 
             btonreserva.addEventListener("click", function () {
-                if (btonreserva.innerHTML = "cancelar") {
+                if (btonreserva.innerHTML == "cancelar") {
                     btonreserva = document.getElementById(id);
                     btonreserva.innerHTML = "Reservar";
-
                     btonreserva.setAttribute('data-target', '#modalReserva');
-
 
                 } else {
                     btonreserva.innerHTML = "cancelar"
                 }
             });
-
-           
         });
-
     }
 
+    
 }
 
 
@@ -176,5 +169,10 @@ function filtrarTipoActividad(ClaseBuscada) {
 
 
 }
+
+
+
+
+    
 
 
