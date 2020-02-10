@@ -8,184 +8,164 @@
     <title>FormularioUsuario</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="">
 </head>
 
 <body>
-    <!--<nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="">Admin</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a data-toggle="modal" class="nav-link" href="#myModal" data-target="#myModal">Listado</a>
-                </li>
-            </ul>
-        </div>
-    </nav>-->
 
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <ul class="nav nav-tabs bg-danger" id="myTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
                 aria-selected="true">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" id="ListadoUser" href="#Listado" role="tab" aria-controls="profile"
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
                 aria-selected="false">Listado</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-                aria-selected="false">Contact</a>
+                aria-selected="false">Crear Clase</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="clases-tab" data-toggle="tab" href="#listadoClases" role="tab"
+                aria-controls="contact" aria-selected="false">Listado de clases</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="asistencia-tab" data-toggle="tab" href="#listadoAsistencia" role="tab"
+                aria-controls="contact" aria-selected="false">Listado de Asistencia</a>
         </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-panel fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="UserForm">
+    <div class="container">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputName">Name</label>
-                            <input type="text" class="form-control" id="nameUser">
+                    <div class="row form-group">
+                        <label for="Nombre" class="col-form-label col-md-4">Nombre</label>
+                        <div class="col-md-8">
+                            <input type="text" name="Nombre" value="" id="userName" class="form-control">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inpuDNI">DNI</label>
-                            <input type="number" class="form-control" id="dniUser">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail">Email</label>
-                            <input type="email" class="form-control" id="emailUser">
-                        </div>
-
                     </div>
-                    <div class="form-group">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" id="addressUser" placeholder="">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="inputState">Sede</label><br>
-                            <select id="inputState" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
-                            </select>
+                    <div class="row form-group">
+                        <label for="dni" class="col-form-label col-md-4">DNI</label>
+                        <div class="col-md-8">
+                            <input type="number" name="dni" value="" id="userDNI" class="form-control">
                         </div>
-
                     </div>
-
-                    <button onclick="addUser()" type="submit" class="btn btn-primary">save</button>
+                    <div class="row form-group">
+                        <label for="dni" class="col-form-label col-md-4">E-mail</label>
+                        <div class="col-md-8">
+                            <input type="email" name="dni" value="" id="userEmail" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="dni" class="col-form-label col-md-4">Address</label>
+                        <div class="col-md-8">
+                            <input type="text" name="dni" value="" id="userAddress" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-form-label col-md-4">
+                            <button onclick="addUser()" type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
                 </form>
-
             </div>
-        </div>
-        <div class="tab-pane fade" id="Listado" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="row">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">DNI</th>
-                        </tr>
-                    </thead>
-                    <tbody id="usersTable"></tbody>
-                </table>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">DNI</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTable"></tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-    </div>
-
-
-    <!--contenedor principal -->
-
-    <div id="container">
-
-
-        <!-- <div class="UserForm">
-        <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputName">Name</label>
-                        <input type="text" class="form-control" id="nameUser">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inpuDNI">DNI</label>
-                        <input type="number" class="form-control" id="dniUser">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail">Email</label>
-                        <input type="email" class="form-control" id="emailUser">
-                    </div>
-
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="addressUser" placeholder="">
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputState">Sede</label><br>
-                        <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <button onclick="addUser()" type="submit" class="btn btn-primary">save</button>
-            </form>
-
-        </div> -->
-        <!--Modal donde se mostrara la lista de usuarios-->
-
-
-        <!--<div id="myModal" class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Usuarios</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">DNI</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="usersTable"></tbody>
-                            </table>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <form>
+                    <div class="row form-group">
+                        <label for="actividad" class="col-form-label col-md-4">Actividad</label>
+                        <div class="col-md-8">
+                            <input type="text" name="actividad" value="" id="actName" class="form-control">
                         </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="hora" class="col-form-label col-md-4">Hora</label>
+                        <div class="col-md-8">
+                            <input type="time" name="Nombre" value="" id="actTime" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="hora" class="col-form-label col-md-4">Dia</label>
+                        <div class="col-md-8">
+                            <input type="date" name="Nombre" value="" id="actDay" class="form-control">
+                        </div>
+                    </div>
 
+                    <div class="form-group row">
+                        <div class="col-form-label col-md-4">
+                            <button type="submit" onclick="addAct()" class="btn btn-primary">Guardar</button>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="listadoClases" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Actividad</th>
+                                <th scope="col">Horario</th>
+                                <th scope="col">Dia</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="clasesTable"></tbody>
+                    </table>
                 </div>
             </div>
-        </div>-->
 
+            <div class="tab-pane fade" id="listadoAsistencia" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Actividad</th>
+                                <th scope="col">Horario</th>
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="listadoAsistencia"></tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
 
     </div>
-
+    
+    
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="js/formUser.js"></script>
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+    <script src="js/ventanaAdministrador.js"></script>
+    <script src="js/actividades.js"></script>
+    <script src="js/moment-develop/moment.js"></script>
     <script>UsersList()</script>
+    <script>clasesList()</script>
+  
+    
 
 </body>
 

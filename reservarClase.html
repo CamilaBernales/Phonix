@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reservar</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|Roboto+Slab&display=swap" rel="stylesheet">
+</head>
+
+<body style="font-family: 'Roboto Slab', serif;">
+
+  <nav class="navbar navbar-expand-lg navbar-danger bg-danger">
+    <a class="navbar-brand" href="#">PHOENIX</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Features</a>
+                <a class="nav-item nav-link" href="#">Pricing</a>
+                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <button id="btnlogin" onclick ="loginLogOut()"href="" class="btn btn-secondary color-boton" style="list-style:none;"
+              >Log In</button>
+          </div>
+        <!-- <a  type ="button" onclick="iniciarSesion()" data-toggle="modal" href="#modalLoginUser"> sdds</a> -->
+    </nav>
+
+
+  <div class="header-page"
+    style="background: url(http://serfitmex.com.mx/wp-content/uploads/2019/08/E-021.jpeg); background-size: contain;">
+    <div class="logo m-auto img-fluid">
+      <img src="img/origamifenix.jpg" alt="..." class="rounded-circle "
+        style="margin: 20px;padding:0;width: 200px;margin-left: 550px;">
+    </div>
+
+  </div>
+
+  <ul class="nav nav-tabs bg-danger" id="myTab" role="tablist" style="justify-content: center; ">
+    <li class="nav-item">
+      <a class="nav-link active " style ="color: honeydew; "id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+        aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" style ="color: honeydew; " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+        aria-selected="false">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  style ="color: honeydew; " id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+        aria-selected="false">Contact</a>
+    </li>
+  </ul>
+
+  <div class="row  py-5">
+    <div class="m-auto">
+      <button type="button" class="btn btn-outline-danger dropdown-toggle btn-responsive"
+        data-toggle="dropdown">Sedes</button>
+
+    </div>
+    <div class="m-auto">
+      <button type="button" class="btn btn-outline-danger dropdown-toggle btn-responsive"
+        data-toggle="dropdown">Actividades</button>
+      <ul class="dropdown-menu " id="listadoAct" role="menu">
+
+
+      </ul>
+    </div>
+    <div class="m-auto">
+      <button type="button" class="btn btn-outline-danger  btn-responsive ">Small button</button>
+    </div>
+
+  </div>
+
+
+
+  <div class="tab-content ml-auto" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+      <div class="table-responsive col-md-8 mt-2 ml-auto mr-auto">
+        <table class="table  ">
+          <thead>
+            <tr>
+              <th scope="col">Dia</th>
+              <th scope="col">Hora</th>
+              <th scope="col">Actividad</th>
+            </tr>
+          </thead>
+          <tbody id="tablaReservas"></tbody>
+        </table>
+      </div>
+
+
+
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+  </div>
+
+
+  <div class="container">
+
+    <div class="modal" tabindex="-1" role="dialog" id="modalReserva">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header  bg-danger">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body m-auto" id="modalBody" >
+            <!-- <h3> <strong>Clase</strong></h3>
+            <h4>año</h4>
+            <h3> <strong>Fecha</strong></h3>
+            <h3> <strong>Hora</strong></h3> -->
+          </div>
+          <div class="modal-footer" style=" padding: 16px 0; margin-bottom: .5rem; background-color: #f8f9fa;">
+            <div class="btn-group btn-group-lg" role="group" aria-label="..." style="width: 100%;">
+              <button type="button" class="btn btn-primary btn-light " data-dismiss="modal">Cancelar</button>
+              <button id="botonConfirmar" type="button" class="btn btn-primary btn-light "  data-dismiss="modal">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="js/actividades.js"></script>
+  <script src="js/ventanaAdministrador.js"></script>
+  <script src="js/moment-develop/moment.js"></script>
+  <script>listarActividades()</script>
+  <script>listarTipoActividades()</script>
+
+</body>
+
+</html>
