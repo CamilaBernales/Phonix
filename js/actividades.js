@@ -31,7 +31,7 @@ function addAct() {
 
     const clases = JSON.parse(localStorage.getItem('Clases')) || [];
 
-    if (nombre != "" && horario != "") {
+    if (nombre != "" && horario != "" && dia != "") {
 
 
         var clase = new Actividades(
@@ -51,6 +51,15 @@ function addAct() {
     listarTipoActividades();
 }
 
+function limitarReserva(cantidad) {
+
+    // console.log(cantidad);
+
+    return cantidad < 20
+
+
+
+}
 
 function listarActividades(clases = null) {
 
@@ -61,56 +70,76 @@ function listarActividades(clases = null) {
         clases = [];
     }
 
-
     let tabla = " ";
+    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado')).id;
 
     for (let index = 0; index < clases.length; index++) {
         let clase = clases[index];
-        tabla += "<tr><td> " + clase.dia + " </td><td>" + clase.horario + "</td><td>" + clase.nombre + '</td><td><button onclick="mostrarEnmodal(\'' + clase.id + '\')" data-toggle="modal" data-target="#modalReserva" type="button" class="btn btn-danger" id="' + clase.id + '" >Reservar</button></td ></tr > ';
+        let disponibilidad = limitarReserva(clase.anotados.length);
+        let yaAnotado = clase.anotados.find(idusuario => idusuario == usuarioLogeado) || "";
+        console.log(yaAnotado.length);
+        
 
+        if (disponibilidad) {
+
+            tabla += `<tr><td>  ${clase.dia} </td><td> ${clase.horario} </td><td> 
+            ${clase.nombre} </td><td ><button onclick="mostrarEnmodal('${clase.id}')"
+             data-toggle="modal" data-target="#modalReserva" type="button" class="btn btn-danger" 
+             id= "${clase.id}"> ${yaAnotado ? 'Cancelar' : 'Reservar'}</button></td ></tr >`;
+
+        }
     }
 
     document.getElementById("tablaReservas").innerHTML = tabla;
-
 }
 
 function mostrarEnmodal(id) {
-
     let clases = JSON.parse(localStorage.getItem('Clases')) || [];
-
-    let modal = " ";
-
     let encontrado = clases.find(actividad => actividad.id == id);
-    // console.log("encontrado" + encontrado);
+    
+    
+    
+    // console.log(id);
+    // console.log(encontrado);
+    let modal = "";
     if (encontrado) {
-        modal = '<h3> <strong>' + encontrado.nombre + '</strong></h3> <h4>' + encontrado.horario + '</h4><h3> <strong> ' + encontrado.dia + '</strong></h3>';
+        modal = `<h3><strong> ${encontrado.nombre} </strong></h3><h4> ${encontrado.horario} </h4><h3>${encontrado.dia}</strong></h3>`;
     } else {
 
     }
     if (id != null) {
 
+
         document.getElementById("modalBody").dataset.id = id;
         document.getElementById("modalBody").innerHTML = modal;
-
         let botonConfirmar = document.getElementById('botonConfirmar');
-
         botonConfirmar.addEventListener("click", function () {
+
+
             btonreserva = document.getElementById(id)
             // console.log(id);
-            btonreserva.innerText = 'cancelar'
+            btonreserva.innerText = 'cancelar';
             btonreserva.setAttribute('data-target', '');
             let posicion = clases.findIndex(actividad => actividad.id == id);
             let idusuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado')).id;
+            let repetido = clases[posicion].anotados.findIndex(idusuario => idusuario == idusuarioLogeado);
 
-            console.log(idusuarioLogeado);
-            clases[posicion].anotados.push(idusuarioLogeado);
-            localStorage.setItem('Clases', JSON.stringify(clases));
-            console.log(clases);
-            console.log(posicion);
+             console.log(repetido);
+            if (repetido>-1) {
+                clases[posicion].anotados.splice(repetido,1);
+                localStorage.setItem('Clases', JSON.stringify(clases))
+            } else {
+                clases[posicion].anotados.push(idusuarioLogeado);
+                localStorage.setItem('Clases', JSON.stringify(clases));
+                console.log(clases);
+                console.log(posicion);
+
+            }
 
             btonreserva.addEventListener("click", function () {
                 if (btonreserva.innerHTML == "cancelar") {
                     btonreserva = document.getElementById(id);
+
                     btonreserva.innerHTML = "Reservar";
                     btonreserva.setAttribute('data-target', '#modalReserva');
 
@@ -119,28 +148,10 @@ function mostrarEnmodal(id) {
                 }
             });
         });
-    }
 
-    
+    }
 }
 
-
-
-// function listarAsistencia(id){
-
-//     let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado')) || [];
-
-//     let tabla = document.getElementById('listadoAsistencia') ;;
-//     tabla.innerHTML ;
-
-//     for (let i = 0; i < usuarioLogeado.length; i++) {
-//         let asistencia = usuarioLogeado[i];
-//         tabla += "<tr><td> " + asistencia.name + " </td><td>" +asistencia.id + '</td ></tr > ';
-
-
-//     }
-
-// }
 
 function listarTipoActividades() {
     let clases = JSON.parse(localStorage.getItem('Clases')) || [];
@@ -173,6 +184,6 @@ function filtrarTipoActividad(ClaseBuscada) {
 
 
 
-    
+
 
 

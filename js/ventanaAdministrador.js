@@ -122,16 +122,46 @@ function clasesList() {
 
         tablaClases += `<tr><td> ${item.nombre} </td><td> ${item.horario} </td><td> ${item.dia} </td><td> <a data-toggle="collapse" onclick="listadoInscriptos('${item.id}')" href="#${item.id}" role="button" aria-expanded="false" aria-controls="collapseExample"> ${item.anotados.length}</a> </td></tr>
         <tr><td colspan="4"><div class="collapse" id="${item.id}">
-        <div class="card card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-        </div></td></tr> `
-        // tablaClases += '<tr><td>' + item.nombre + '</td><td>' + item.horario + '</td><td>' + item.dia + '</td> '+ '<td>'+ item.anotados.length +'</td></tr>';
+       
+          
+            <tr id= "fila${item.id}">
+            </tr>
+          
+         
+        
+       
+        </td></tr> `;
+
 
     }
 
     document.getElementById('clasesTable').innerHTML = tablaClases;
 }
 
+    function listadoInscriptos(id) {
+
+
+        let clases = JSON.parse(localStorage.getItem('Clases')) || [];
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+
+       let claseEncontrado = clases.find(clase => clase.id == id);
+       console.log(claseEncontrado);
+    //    console.log(claseEncontrado.anotados.length);
+    
+    let tabla ="";
+    
+    for(let index = 0 ; index<claseEncontrado.anotados.length; index++){
+        
+        let idUsuarioAnotado = claseEncontrado.anotados[index];
+        let usuarios = users.find(user => user.id == idUsuarioAnotado);
+        // console.log(usuarios);
+            tabla += `<tr><td>${usuarios.name +'este es el usuario'}</td></tr>`;
+       }
+       
+       document.getElementById("fila"+id).innerHTML = tabla;
+
+    }
 
 
 function iniciarSesion() {
@@ -188,14 +218,10 @@ function loginLogOut() {
 
             if (btnIniciarSesion.innerHTML != "Log in") {
                 btnIniciarSesion.innerHTML = 'Log In';
-            }else{
-                btnIniciarSesion.innerHTML = nombre.name ;
+            } else {
+                btnIniciarSesion.innerHTML = nombre.name;
             }
         })
     });
 }
 
-
-function listadoInscriptos(){
-
-}
