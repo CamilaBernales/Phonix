@@ -120,19 +120,54 @@ function clasesList() {
 
         let item = clases[index];
 
-        tablaClases += '<tr><td>' + item.nombre + '</td><td>' + item.horario + '</td><td>' + item.dia + '</td><tr>';
+        tablaClases += `<tr><td> ${item.nombre} </td><td> ${item.horario} </td><td> ${item.dia} </td><td> <a data-toggle="collapse" onclick="listadoInscriptos('${item.id}')" href="#${item.id}" role="button" aria-expanded="false" aria-controls="collapseExample"> ${item.anotados.length}</a> </td></tr>
+        <tr><td colspan="4"><div class="collapse" id="${item.id}">
+       
+          
+            <tr id= "fila${item.id}">
+            </tr>
+          
+         
+        
+       
+        </td></tr> `;
+
 
     }
 
     document.getElementById('clasesTable').innerHTML = tablaClases;
 }
 
+    function listadoInscriptos(id) {
+
+
+        let clases = JSON.parse(localStorage.getItem('Clases')) || [];
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+
+       let claseEncontrado = clases.find(clase => clase.id == id);
+       console.log(claseEncontrado);
+    //    console.log(claseEncontrado.anotados.length);
+    
+    let tabla ="";
+    
+    for(let index = 0 ; index<claseEncontrado.anotados.length; index++){
+        
+        let idUsuarioAnotado = claseEncontrado.anotados[index];
+        let usuarios = users.find(user => user.id == idUsuarioAnotado);
+        // console.log(usuarios);
+            tabla += `<tr><td>${usuarios.name +'este es el usuario'}</td></tr>`;
+       }
+       
+       document.getElementById("fila"+id).innerHTML = tabla;
+
+    }
 
 
 function iniciarSesion() {
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado')) || [];
+    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
     let nombre = document.getElementById('nombreLoginUsuario').value;
     let contraseña = document.getElementById('contraseñaLoginUsuario').value;
 
@@ -142,15 +177,10 @@ function iniciarSesion() {
         if (usuario.name == nombre && usuario.dni == contraseña) {
 
             // console.log("soy el id de " + usuario.name + " " + usuario.id);
-            usuarioLogeado.push(usuario);
 
-            localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioLogeado));
+            localStorage.setItem('usuarioLogeado', JSON.stringify(usuario));
 
             window.location.href = "reservarClase.html"
-
-            if (usuarioLogeado.length > 2) {
-                localStorage.removeItem('usuarioLogeado')
-            }
 
         }
 
@@ -169,7 +199,7 @@ function loginLogOut() {
     // const usuarioLogeado = JSON.parse(localStorage.get}Item('usuarioLogeado')) || [];
 
     let btnIniciarSesion = document.getElementById('btnlogin');
-    let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado')) || [];
+    let usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
 
     btnIniciarSesion.addEventListener("click", function () {
 
@@ -188,9 +218,10 @@ function loginLogOut() {
 
             if (btnIniciarSesion.innerHTML != "Log in") {
                 btnIniciarSesion.innerHTML = 'Log In';
-            }else{
-                btnIniciarSesion.innerHTML = nombre.name ;
+            } else {
+                btnIniciarSesion.innerHTML = nombre.name;
             }
         })
     });
 }
+
