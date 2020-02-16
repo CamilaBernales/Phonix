@@ -105,50 +105,47 @@ function mostrarEnmodal(id) {
     if (encontrado) {
         modal = `<h3><strong> ${encontrado.nombre} </strong></h3><h4> ${encontrado.horario} </h4><h3>${encontrado.dia}</strong></h3>`;
     } else {
-
+        
     }
     if (id != null) {
-
-
+        
+        
         document.getElementById("modalBody").dataset.id = id;
         document.getElementById("modalBody").innerHTML = modal;
         let botonConfirmar = document.getElementById('botonConfirmar');
+
         botonConfirmar.addEventListener("click", function () {
-
-
             btonreserva = document.getElementById(id)
-            // console.log(id);
-            btonreserva.innerText = 'cancelar';
+            btonreserva.innerText = 'Cancelar';
             btonreserva.setAttribute('data-target', '');
             let posicion = clases.findIndex(actividad => actividad.id == id);
             let idusuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado')).id;
             let repetido = clases[posicion].anotados.findIndex(idusuario => idusuario == idusuarioLogeado);
-
-             console.log(repetido);
+            
+            console.log(repetido);
             if (repetido>-1) {
                 clases[posicion].anotados.splice(repetido,1);
                 localStorage.setItem('Clases', JSON.stringify(clases))
             } else {
                 clases[posicion].anotados.push(idusuarioLogeado);
                 localStorage.setItem('Clases', JSON.stringify(clases));
-                console.log(clases);
-                console.log(posicion);
-
             }
-
+            
             btonreserva.addEventListener("click", function () {
-                if (btonreserva.innerHTML == "cancelar") {
+                if (btonreserva.innerHTML == "Cancelar") {
                     btonreserva = document.getElementById(id);
-
-                    btonreserva.innerHTML = "Reservar";
+                    
                     btonreserva.setAttribute('data-target', '#modalReserva');
-
+                    botonConfirmar.addEventListener("click", function(){
+                        btonreserva.innerHTML = "Reservar";
+                    });
+                    
                 } else {
-                    btonreserva.innerHTML = "cancelar"
+                    btonreserva.innerHTML = "Cancelar"
                 }
             });
         });
-
+        
     }
 }
 

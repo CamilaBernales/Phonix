@@ -1,9 +1,40 @@
-.navbar .logo{
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
+body{
+    font-family: 'Roboto Slab', serif;
 }
-.fondo-principal{
-    background: linear-gradient(to left, #69140E, #F17F29 , #eee , #F96900);
 
-}                                           
+.header-page{
+    background-color: #69140E ;
+
+}
+
+.footer{
+    background-color: black;
+    color:#737373;
+    padding: 35px 0px 15px;
+    font-size:15px;
+    list-style: none;
+}
+.footer .links a{
+    color: #737373;
+}
+.social-media a{
+    color: #737373;
+}
+.footer a:hover{
+    color: white;
+}
+
+.footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.footer h5{
+    color: white;
+    font-size:16px;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.footer .social-media {
+    list-style: none;
+}

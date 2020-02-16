@@ -122,14 +122,8 @@ function clasesList() {
 
         tablaClases += `<tr><td> ${item.nombre} </td><td> ${item.horario} </td><td> ${item.dia} </td><td> <a data-toggle="collapse" onclick="listadoInscriptos('${item.id}')" href="#${item.id}" role="button" aria-expanded="false" aria-controls="collapseExample"> ${item.anotados.length}</a> </td></tr>
         <tr><td colspan="4"><div class="collapse" id="${item.id}">
-       
-          
             <tr id= "fila${item.id}">
             </tr>
-          
-         
-        
-       
         </td></tr> `;
 
 
