@@ -1,0 +1,43 @@
+body{
+    font-family: 'Roboto Slab', serif;
+    background: url(https://billmarnich.com/wp-content/uploads/2017/02/Kettlebell-STACK.jpg);
+   
+}
+
+.nav-link{
+    color: white;
+  
+}
+
+a:hover{
+    color:whitesmoke;
+}
+.formUser, .formActividad{
+
+    background-color: white;
+    margin-top: 60px;
+    padding: 20px;
+    box-shadow: 1px 1px 8px #666;     
+    font-size: 18px;
+     
+     
+}
+
+ .btn{
+    border: none;
+    outline: none;
+    height: 40px;
+    background-color: #69140E ;
+    color: #ffffff;
+    font-size: 15px;
+    border-radius: 20px ;
+}
+
+ .btn:hover{
+     background-color:  #69140E ;
+    color: whitesmoke;
+}
+
+input:hover{
+    color: white;
+}

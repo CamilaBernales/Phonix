@@ -8,7 +8,8 @@
   <title>Reservar</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans|Roboto+Slab&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans|Roboto+Slab&display=swap" rel="stylesheet">
+
 </head>
 
 <body style="font-family: 'Roboto Slab', serif;">
@@ -16,23 +17,22 @@
   <nav class="navbar navbar-expand-lg navbar-danger bg-danger">
     <a class="navbar-brand" href="#">PHOENIX</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Features</a>
-                <a class="nav-item nav-link" href="#">Pricing</a>
-                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </div>
-        </div>
-        <div class="d-flex justify-content-around">
-            <button id="btnlogin" onclick ="loginLogOut()"href="" class="btn btn-secondary color-boton" style="list-style:none;"
-              >Log In</button>
-          </div>
-        <!-- <a  type ="button" onclick="iniciarSesion()" data-toggle="modal" href="#modalLoginUser"> sdds</a> -->
-    </nav>
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#">Features</a>
+        <a class="nav-item nav-link" href="#">Pricing</a>
+        <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around">
+      <button id="btnlogin" href="" class="btn btn-secondary color-boton" style="list-style:none;">Log In</button>
+    </div>
+    <!-- <a  type ="button" onclick="iniciarSesion()" data-toggle="modal" href="#modalLoginUser"> sdds</a> -->
+  </nav>
 
 
   <div class="header-page"
@@ -46,16 +46,16 @@
 
   <ul class="nav nav-tabs bg-danger" id="myTab" role="tablist" style="justify-content: center; ">
     <li class="nav-item">
-      <a class="nav-link active " style ="color: honeydew; "id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-        aria-selected="true">Home</a>
+      <a class="nav-link active " style="color: honeydew; " id="home-tab" data-toggle="tab" href="#home" role="tab"
+        aria-controls="home" aria-selected="true">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" style ="color: honeydew; " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-        aria-selected="false">Profile</a>
+      <a class="nav-link" style="color: honeydew; " id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+        aria-controls="profile" aria-selected="false">Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link"  style ="color: honeydew; " id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-        aria-selected="false">Contact</a>
+      <a class="nav-link" style="color: honeydew; " id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+        aria-controls="contact" aria-selected="false">Contact</a>
     </li>
   </ul>
 
@@ -63,20 +63,16 @@
     <div class="m-auto">
       <button type="button" class="btn btn-outline-danger dropdown-toggle btn-responsive"
         data-toggle="dropdown">Sedes</button>
-
     </div>
     <div class="m-auto">
       <button type="button" class="btn btn-outline-danger dropdown-toggle btn-responsive"
         data-toggle="dropdown">Actividades</button>
       <ul class="dropdown-menu " id="listadoAct" role="menu">
-
-
       </ul>
     </div>
     <div class="m-auto">
       <button type="button" class="btn btn-outline-danger  btn-responsive ">Small button</button>
     </div>
-
   </div>
 
 
@@ -115,22 +111,58 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body m-auto" id="modalBody" >
-            <!-- <h3> <strong>Clase</strong></h3>
-            <h4>año</h4>
-            <h3> <strong>Fecha</strong></h3>
-            <h3> <strong>Hora</strong></h3> -->
+          <div class="modal-body m-auto" id="modalBody">
           </div>
           <div class="modal-footer" style=" padding: 16px 0; margin-bottom: .5rem; background-color: #f8f9fa;">
             <div class="btn-group btn-group-lg" role="group" aria-label="..." style="width: 100%;">
               <button type="button" class="btn btn-primary btn-light " data-dismiss="modal">Cancelar</button>
-              <button id="botonConfirmar" type="button" class="btn btn-primary btn-light "  data-dismiss="modal">Confirmar</button>
+              <button id="botonConfirmar" type="button" class="btn btn-primary btn-light "
+                data-dismiss="modal">Confirmar</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!--modal de cambio de contraseña-->
+  <div class="modal" tabindex="-1" role="dialog" id="modalcambiocontraseña">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-row">
+              <div class="col">
+                <input id="nuevacontaseña" type="text" class="form-control" placeholder="password">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="guardarcontraseñanueva" type="button" class="btn btn-secondary"
+            data-dismiss="modal">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alert de usuario suspendido-->
+  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="modalusuariosuspendido"aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+         <h5><strong>Hubo un problema</strong></h5>
+          <a><h6>Contacta a un administrador</h6></a>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -147,6 +179,7 @@
   <script src="js/moment-develop/moment.js"></script>
   <script>listarActividades()</script>
   <script>listarTipoActividades()</script>
+  <script>cambiarcontraseña()</script>
 
 </body>
 

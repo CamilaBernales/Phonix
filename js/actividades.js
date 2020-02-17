@@ -28,10 +28,11 @@ function addAct() {
     const nombre = document.getElementById('actName').value;
     const horario = document.querySelector('#actTime').value;
     const dia = document.getElementById('actDay').value;
-
+    
     const clases = JSON.parse(localStorage.getItem('Clases')) || [];
+    let diaMin = moment().format('L');
 
-    if (nombre != "" && horario != "" && dia != "") {
+    if (nombre != "" && horario != "" && (dia != "" && dia > diaMin)) {
 
 
         var clase = new Actividades(
@@ -52,13 +53,8 @@ function addAct() {
 }
 
 function limitarReserva(cantidad) {
-
     // console.log(cantidad);
-
     return cantidad < 20
-
-
-
 }
 
 function listarActividades(clases = null) {
@@ -71,36 +67,42 @@ function listarActividades(clases = null) {
     }
 
     let tabla = " ";
-    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado')).id;
+    const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado'));
+    // const usuarioLogeado = JSON.parse(localStorage.getItem('usuarioLogeado')).sancionado;
+
 
     for (let index = 0; index < clases.length; index++) {
         let clase = clases[index];
         let disponibilidad = limitarReserva(clase.anotados.length);
-        let yaAnotado = clase.anotados.find(idusuario => idusuario == usuarioLogeado) || "";
-        console.log(yaAnotado.length);
-        
-
-        if (disponibilidad) {
-
+        let yaAnotado = clase.anotados.find(idusuario => idusuario == usuarioLogeado.id) || "";
+        if ( (disponibilidad == true ) && ( usuarioLogeado.sancionado === false)) {
             tabla += `<tr><td>  ${clase.dia} </td><td> ${clase.horario} </td><td> 
             ${clase.nombre} </td><td ><button onclick="mostrarEnmodal('${clase.id}')"
              data-toggle="modal" data-target="#modalReserva" type="button" class="btn btn-danger" 
              id= "${clase.id}"> ${yaAnotado ? 'Cancelar' : 'Reservar'}</button></td ></tr >`;
-
+        }else{
+            
         }
+    }
+    if(usuarioLogeado.sancionado === true){
+
+        mostraravisosancion();
     }
 
     document.getElementById("tablaReservas").innerHTML = tabla;
+}
+function mostraravisosancion(){
+    const usuariosuspendido = JSON.parse(localStorage.getItem('usuarioLogeado')).sancionado;
+console.log(usuariosuspendido);
+    if(usuariosuspendido){
+        $('#modalusuariosuspendido').modal('show');
+    }
+
 }
 
 function mostrarEnmodal(id) {
     let clases = JSON.parse(localStorage.getItem('Clases')) || [];
     let encontrado = clases.find(actividad => actividad.id == id);
-    
-    
-    
-    // console.log(id);
-    // console.log(encontrado);
     let modal = "";
     if (encontrado) {
         modal = `<h3><strong> ${encontrado.nombre} </strong></h3><h4> ${encontrado.horario} </h4><h3>${encontrado.dia}</strong></h3>`;

@@ -19,11 +19,11 @@
 
     <div class="header-page">
         <div class="logo row">
-            <img src="img/origamifenix.jpg" alt="..." class="rounded-circle mx-auto my-2">
+            <img src="img/origamifenix.jpg" alt="..." class="rounded-circle m-auto my-2">
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-danger">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">INICIO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,17 +31,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a id="Home"class="nav-item nav-link active" href="#"> Home <span class="sr-only">(current)</span></a>
+                <a id="Home" class="nav-item nav-link active" href="#"> Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="#">Actividades</a>
                 <a class="nav-item nav-link" href="#">RRHH</a>
-                
             </div>
         </div>
         <div class="d-flex justify-content-around">
             <a href="" class="btn btn-secondary color-boton" style="list-style:none;" data-toggle="modal"
                 data-target="#modalLoginUser">Log In</a>
         </div>
-        <!-- <a  type ="button" onclick="iniciarSesion()" data-toggle="modal" href="#modalLoginUser"> sdds</a> -->
     </nav>
 
 
@@ -68,7 +66,7 @@
         </a>
     </div>
 
-
+    <!--modal ingreso de usuario-->
     <div class="modal" tabindex="-1" role="dialog" id="modalLoginUser">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -86,15 +84,16 @@
                                     placeholder="First name">
                             </div>
                             <div class="col">
-                                <input id="contraseñaLoginUsuario" type="text" class="form-control"
-                                    placeholder="Last name">
+                                <input id="contraseñaLoginUsuario" type="password" class="form-control"
+                                    placeholder="password">
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a type="button" class="btn btn-primary" onclick=" iniciarSesion()">Ingresar</a>
+                    <button type="button" class="btn btn-primary" id="botonIniciarSesion"
+                        onclick="iniciarSesion()">Ingresar</button>
                 </div>
             </div>
         </div>
@@ -135,7 +134,7 @@
 
     </div>
 
-
+   
 
     <footer class="footer">
         <div class="container">
