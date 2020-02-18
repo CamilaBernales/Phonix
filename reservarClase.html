@@ -9,11 +9,17 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=PT+Sans|Roboto+Slab&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reservarClase.css">
 
 </head>
 
-<body style="font-family: 'Roboto Slab', serif;">
-
+<body>
+  <div class="header-page">
+    <div class="logo row">
+      <img src="img/origamifenix.jpg" alt="logogym" class="rounded-circle m-auto my-2 p-0"
+        style="width: 200px;margin-left: 550px;">
+    </div>
+  </div>
   <nav class="navbar navbar-expand-lg navbar-danger bg-danger">
     <a class="navbar-brand" href="#">PHOENIX</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -33,18 +39,8 @@
     </div>
     <!-- <a  type ="button" onclick="iniciarSesion()" data-toggle="modal" href="#modalLoginUser"> sdds</a> -->
   </nav>
-
-
-  <div class="header-page"
-    style="background: url(http://serfitmex.com.mx/wp-content/uploads/2019/08/E-021.jpeg); background-size: contain;">
-    <div class="logo m-auto img-fluid">
-      <img src="img/origamifenix.jpg" alt="..." class="rounded-circle "
-        style="margin: 20px;padding:0;width: 200px;margin-left: 550px;">
-    </div>
-
-  </div>
-
-  <ul class="nav nav-tabs bg-danger" id="myTab" role="tablist" style="justify-content: center; ">
+<div class="container">
+<ul class="nav nav-tabs bg-danger" id="myTab" role="tablist" style="justify-content: center; ">
     <li class="nav-item">
       <a class="nav-link active " style="color: honeydew; " id="home-tab" data-toggle="tab" href="#home" role="tab"
         aria-controls="home" aria-selected="true">Home</a>
@@ -58,7 +54,7 @@
         aria-controls="contact" aria-selected="false">Contact</a>
     </li>
   </ul>
-
+</div>
   <div class="row  py-5">
     <div class="m-auto">
       <button type="button" class="btn btn-outline-danger dropdown-toggle btn-responsive"
@@ -113,8 +109,8 @@
           </div>
           <div class="modal-body m-auto" id="modalBody">
           </div>
-          <div class="modal-footer" style=" padding: 16px 0; margin-bottom: .5rem; background-color: #f8f9fa;">
-            <div class="btn-group btn-group-lg" role="group" aria-label="..." style="width: 100%;">
+          <div class="modal-footer">
+            <div class="btn-group btn-group-lg" role="group" aria-label="...">
               <button type="button" class="btn btn-primary btn-light " data-dismiss="modal">Cancelar</button>
               <button id="botonConfirmar" type="button" class="btn btn-primary btn-light "
                 data-dismiss="modal">Confirmar</button>
@@ -153,12 +149,15 @@
   </div>
 
   <!-- Alert de usuario suspendido-->
-  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="modalusuariosuspendido"aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="modalusuariosuspendido"
+    aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-body">
-         <h5><strong>Hubo un problema</strong></h5>
-          <a><h6>Contacta a un administrador</h6></a>
+          <h5><strong>Hubo un problema</strong></h5>
+          <a>
+            <h6>Contacta a un administrador</h6>
+          </a>
           </p>
         </div>
       </div>
