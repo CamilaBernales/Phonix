@@ -3,23 +3,27 @@ function validarIngreso() {
     const nameAdmin = document.getElementById('adminName').value;
     const passAdmin = document.getElementById('adminPass').value;
 
-    if (passAdmin == "" || passAdmin != "admin" || nameAdmin == "" || passAdmin != "admin") {
+    if (passAdmin == "" || passAdmin != "admin" || nameAdmin == "" || nameAdmin != "admin@gmail.com") {
 
-       
+
         const users = JSON.parse(localStorage.getItem('users')) || [];
-        const userName = users.filter(usuarios => usuarios.name == nameAdmin);
-        if(userName!=""){
+        const userName = users.filter(usuarios => usuarios.email == nameAdmin);
+        if (userName.length) {
             alert("El usuario se encuentra registrado como cliente regular");
-        }else if(userName==""){
+            location.reload();
+        } else {
             alert("El usuario ingresado no esta registrado en el sistema");
+            location.reload();
         }
 
 
-    } else {
+    } else if (nameAdmin === "admin@gmail.com" && passAdmin === "admin") {
         event.preventDefault();
-       // location.href = "formularioAdmin.html";
-        window.location.href= "formularioAdmin.html";
+        // location.href = "formularioAdmin.html";
+       
+        window.location.href = "formularioAdmin.html";
     }
+
 }
 
 

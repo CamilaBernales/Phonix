@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/formulariosadmin.css">
+    <link rel="stylesheet" href="css/footer.css">
+
     <link href="https://fonts.googleapis.com/css?family=PT+Sans|Roboto+Slab&display=swap" rel="stylesheet">
 
 </head>
@@ -23,7 +25,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-                aria-selected="false">Listado</a>
+                aria-selected="false">Listado de Usuarios</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
@@ -71,13 +73,13 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-form-label col-md-4">
-                            <button onclick="addUser()" type="submit" class="btn btn-primary">Guardar</button>
+                            <button onclick="addUser()" type="submit" class="btnformulario btn btn-primary">Guardar</button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="row">
+                <div class="row listadousuarios">
                     <table class="table">
                         <thead>
                             <tr>
@@ -113,15 +115,15 @@
                     </div>
 
                     <div class="form-group row">
-                        <div class="col-form-label col-md-4">
-                            <button type="submit" onclick="addAct()" class="btn btn-primary">Guardar</button>
+                        <div class="">
+                            <button type="submit" onclick="addAct()" class=" btnformulario btn btn-primary">Guardar</button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="tab-pane fade" id="listadoClases" role="tabpanel" aria-labelledby="nav-contact-tab">
                 <div class="row">
-                    <table class="table">
+                    <table class="table listadoactividades">
                         <thead>
                             <tr>
                                 <th scope="col">Actividad</th>
@@ -141,7 +143,7 @@
 
        
     </div>
-    
+
     
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

@@ -3,7 +3,8 @@ body {
     padding: 0;
     background: url(http://serfitmex.com.mx/wp-content/uploads/2019/08/E-021.jpeg);
     background-size: cover;
-    height: 50 hv;
+    height: 100 hv;
+    font-family: 'Roboto Slab', serif;
 }
 
 .table{

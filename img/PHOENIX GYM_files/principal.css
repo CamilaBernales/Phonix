@@ -7,13 +7,8 @@
 
 .header-page{
     background-color: #69140E ; 
-    /* width: 100%; */
+    
  } 
- .header-page .logo{
-     width: 100%;
- }
- 
- 
 .container{
     margin: auto;
 }

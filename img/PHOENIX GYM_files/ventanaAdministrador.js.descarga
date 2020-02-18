@@ -183,7 +183,7 @@ function iniciarSesion() {
 
     let usuarioIngreado = users.find(usuario => usuario.email == email && usuario.contraseña == contraseña);
 
-    // console.log(usuarioIngreado)
+    console.log(usuarioIngreado)
     if (usuarioIngreado) {
 
         localStorage.setItem('usuarioLogeado', JSON.stringify(usuarioIngreado));
