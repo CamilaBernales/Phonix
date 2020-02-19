@@ -1,0 +1,16 @@
+.modal-footer{
+    padding: 16px 0;
+    margin-bottom: .5rem; 
+    background-color: #f8f9fa
+}
+.btn-group{
+    width: 100%;
+}
+.header-page{
+    background-color: #60100f;
+    background-size: contain;
+    margin-top: 20px;
+}
+.body{
+    font-family: 'Roboto Slab', serif;
+}

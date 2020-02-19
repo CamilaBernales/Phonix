@@ -1,7 +1,9 @@
  body{
     height: 100hv;
     font-family: 'Roboto Slab', serif;
-
+ }
+.header-page{
+    background-color: #60100f ;
 
 }
 
