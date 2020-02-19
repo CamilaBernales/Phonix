@@ -34,7 +34,8 @@ function addAct() {
     let diaMin = moment().format('YYYY-MM-DD');
     let horaminima = moment().format('07:00');
 
-
+    const claseexistente = clases.find(clase=> clase.nombre == nombre && clase.dia == dia && clase.horario == horario); 
+if(claseexistente==undefined){
     if (nombre != "" && (horario != "" && horario > horaminima) && (dia != "" && dia > diaMin)) {
         const clase = new Actividades(
             nombre,
@@ -56,7 +57,9 @@ function addAct() {
         }
     }
 
-   
+}else if(claseexistente != undefined){
+    alert("La clase que intenta crear ya existe");
+}
    
 }
 
@@ -86,7 +89,7 @@ function listarActividades(clases = null) {
             let yaAnotado = clase.anotados.find(idusuario => idusuario == usuarioLogeado.id) || "";
             if ((disponibilidad == true) && (usuarioLogeado.sancionado === false)) {
                 tabla += `<tr><td>  ${clase.dia} </td><td> ${clase.horario} </td><td> 
-            ${clase.nombre} </td><td ><button onclick="mostrarEnmodal('${clase.id}')"
+            ${clase.nombre} </td><td ><button style="background-color: #E9190F;" onclick="mostrarEnmodal('${clase.id}')"
              data-toggle="modal" data-target="#modalReserva" type="button" class="btn btn-danger" 
              id= "${clase.id}"> ${yaAnotado ? 'Cancelar' : 'Reservar'}</button></td ></tr >`;
             }else{

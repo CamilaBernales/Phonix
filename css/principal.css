@@ -72,19 +72,6 @@
        margin-top: 100px;
    }
 
-   .dropdown-menu {
-       background-color: transparent;
-       transform: skewX(0deg);
-      
-   }
-   .dropdown-menu a:hover{
-   
-    
-    
-     background-color: transparent;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: .25rem;
-}
   /*Modal*/
   .close {
     color: #fff;

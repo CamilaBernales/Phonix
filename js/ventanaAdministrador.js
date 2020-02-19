@@ -58,7 +58,10 @@ function addUser() {
     const address = document.querySelector('#userAddress').value;
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    if (name != "" && lastname != "" && dni != "" & address != "") {
+    const usuarioregistrado = users.find(usuario=> usuario.dni == dni);
+
+    if(usuarioregistrado==undefined){
+    if (name != "" && lastname != "" && email!="" && dni != "" & address != "") {
 
 
         var user = new User(
@@ -78,6 +81,9 @@ function addUser() {
     } else {
         alert("Complete los campos vacios")
     }
+} else if(usuarioregistrado!=undefined){
+    alert("Este usuario ya se encuentra en el sistema");
+}
 
     UsersList();
 
