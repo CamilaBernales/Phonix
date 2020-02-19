@@ -180,7 +180,7 @@
       height: 100%;
   }
   
-  .sign-in-container {
+  .log-in-container {
       left: 0;
       width: 53%;
       z-index: 2;
@@ -189,7 +189,7 @@
  
 
   
-  .overlay-container {
+  .loginadmin-container {
       position: absolute;
       top: 0;
       left: 50%;
@@ -201,7 +201,7 @@
   
  
   
-  .overlay {
+  .loginadmin {
       /* background: linear-gradient(to right, #FF4B2B, #FF416C); */
       background-repeat: no-repeat;
       background-size: cover;
@@ -216,7 +216,7 @@
     }
     
     
-    .overlay-panel
+    .loginadmin-panel
      {
     
       position: absolute;
