@@ -197,6 +197,8 @@ function iniciarSesion() {
 
         window.location.href = "reservarClase.html";
 
+    }else if(usuarioIngreado == undefined){
+        alert("Correo invalido o contraseña incorrecta");
     }
 }
 
@@ -252,3 +254,9 @@ function cambiarcontraseña() {
 //     // });
 // }
 
+function cerrarsesion(){
+
+    
+    localStorage.removeItem('usuarioLogeado');
+
+}
