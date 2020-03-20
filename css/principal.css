@@ -1,37 +1,77 @@
  body{
-    height: 100hv;
+    /* height: 100hv; */
     font-family: 'Roboto Slab', serif;
  }
-.header-page{
+.header-page
+{
     background-color: #60100f ;
 
 }
-
-.header-page{
-    background-color: #69140E ; 
-    /* width: 100%; */
- } 
  .header-page .logo{
      width: 100%;
  }
  
- 
-.container{
-    margin: auto;
-}
-    
+ .iconscontainer{
+     margin-top: 70px;
 
-  .login-boton {
-    
-    color: #fff;
-    background: linear-gradient(to bottom right, #C14641, #69140E);
-text-decoration: none;
-  
-    border-radius: 0px;
-    position: relative; 
-    
+ }
+ nav {
+    background-color: #E9190F;
   }
-  
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+   
+  }
+  .navbar ul li {
+    display: inline-block;
+    vertical-align: top;
+  }
+ 
+  .navbar  ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    line-height: 60px;
+    padding: 0 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    font-weight: 300;
+    color: #fff;
+    font-family: 'Open Sans';
+  }
+  .navbar ul li a:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFAE03;
+    z-index: -1;
+    transform: skewX(-30deg);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .navbar ul li:hover a,
+  .navbar ul li:focus a,
+ .navbar ul li.active a {
+    color: #fff;
+  }
+  .navbar ul li:hover a:after,
+  .navbar ul li:focus a:after,
+  .navbar ul li.active a:after {
+    opacity: 1;
+  }
+   .cardscontainer{
+       margin-top: 100px;
+   }
+
   /*Modal*/
   .close {
     color: #fff;
@@ -75,18 +115,19 @@ text-decoration: none;
       margin: 15px 0;
   }
 
-  .containerlogin a:hover{
+  .containerlogin > a:hover{
     color: red;
 }
   
   .containerlogin button {
+      display: flex;
       border-radius: 20px;
-      border: 1px solid #FF773D;
+     border: 1px solid #FF773D;
       background-color: #FF773D;
       color: #FFFFFF;
       font-size: 12px;
       font-weight: bold;
-      padding: 9px 35px;
+      padding: 7px 20px;
       letter-spacing: 1px;
       text-transform: uppercase;
      
@@ -116,9 +157,9 @@ text-decoration: none;
  .containerlogin input {
       background-color: #eee;
       border: none;
-      padding: 12px 15px;
+      /* padding: 12px 15px; */
       margin: 8px 0;
-      width: 100%;
+      width: 137%;
   }
   
   .containerlogin {
@@ -137,19 +178,18 @@ text-decoration: none;
       position: absolute;
       top: 0;
       height: 100%;
-      transition: all 0.6s ease-in-out;
   }
   
-  .sign-in-container {
+  .log-in-container {
       left: 0;
-      width: 50%;
+      width: 53%;
       z-index: 2;
   }
   
  
 
   
-  .overlay-container {
+  .loginadmin-container {
       position: absolute;
       top: 0;
       left: 50%;
@@ -161,7 +201,7 @@ text-decoration: none;
   
  
   
-  .overlay {
+  .loginadmin {
       /* background: linear-gradient(to right, #FF4B2B, #FF416C); */
       background-repeat: no-repeat;
       background-size: cover;
@@ -172,10 +212,13 @@ text-decoration: none;
       height: 100%;
       background: #FF773D;
       width: 200%;
+      
     }
     
     
-    .overlay-panel {
+    .loginadmin-panel
+     {
+    
       position: absolute;
       display: flex;
       align-items: center;
@@ -190,6 +233,28 @@ text-decoration: none;
    
   }
   
+  .iconscontainer h2{
+    font-size: 30px;
+    margin: auto;
+    font-weight: bold;
+    padding: 30px 0px ;
+    font-family: 'Ubuntu', sans-serif;
+}
   
-  
+.indexcontainer h2{
+  font-size: 30px;
+  margin:auto;
+  font-weight: bold;
+  padding: 40px 0px ;
+  font-family: 'Ubuntu', sans-serif;
+}
  
+.indexcontainer{
+
+  font-size: 2.8vh;
+  font-family: 'Roboto Slab', serif;
+
+
+}
+
+

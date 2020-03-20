@@ -1,0 +1,35 @@
+
+.contactocontainer{
+    font-size: 2.8vh;
+    /* height: 100hv; */
+    font-family: 'Roboto Slab', serif;
+}
+
+.contactocontainer h2{
+    font-size: 30px;
+    margin: auto;
+    font-weight: bold;
+    padding: 30px 0px ;
+    font-family: 'Ubuntu', sans-serif;
+                }
+
+
+.areamensaje input{
+
+    height: 300px;
+}
+#btnenviarmensaje{
+    border: none;
+    outline: none;
+    width: 8rem;
+    height: 40px;
+    background-color: #69140E ;
+    color: #ffffff;
+    font-size: 15px;
+    border-radius: 20px ;
+}
+
+#btnenviarmensaje:hover{
+    background-color:  #69140E ;
+   color: whitesmoke;
+}
